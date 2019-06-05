@@ -9,6 +9,8 @@
 ```
 docker run -it \
   -e NGINX_PROXY_PASS=http://your-back-end:port/ \
+# when MODSECURITY_ENFORCE is not set - it is in DetectionOnly state
+  -e MODSECURITY_ENFORCE=true \
   -p 8765:80 \
   vrsng/nginx-modsecurity-alpine
 ```
