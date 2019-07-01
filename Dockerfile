@@ -1,4 +1,4 @@
-FROM alpine:3.9 as builder
+FROM alpine:3.10 as builder
 
 ENV SSDEEP_VERSION=2.14.1 \
     MODSECURITY_VERSION=3.0.3 \
@@ -71,7 +71,7 @@ RUN wget https://github.com/SpiderLabs/owasp-modsecurity-crs/archive/v${OWASP_VE
 RUN find /usr/local -name '.so' -or -name '*.a' -exec strip {} \;
 
 
-FROM alpine:3.9
+FROM alpine:3.10
 
 RUN apk add --no-cache ca-certificates libcurl libpcrecpp libxml2 yajl lua5.2 geoip pcre curl libmaxminddb \
     && cp -l /usr/lib/liblua-5.2.so.0 /usr/lib/liblua-5.2.so
